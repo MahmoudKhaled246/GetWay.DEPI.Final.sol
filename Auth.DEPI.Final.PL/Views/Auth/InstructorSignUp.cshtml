@@ -1,0 +1,57 @@
+﻿@model InstructorSignUpViewModel
+
+@{
+    ViewData["Title"] = "InstructorSignUp";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+<form asp-action="InstructorSignUp" method="post" class="login100-form validate-form" enctype="multipart/form-data">
+
+
+	<span class="login100-form-title">
+		Instructor Signup
+	</span>
+
+
+
+	<partial name="AuthPartialViews/SharedSignUpPartialView" model="Model"></partial>
+
+
+
+	<div class="wrap-input100 validate-input mt-3">
+		<textarea class="input100 p-l-20 pt-2" placeholder="Bio" asp-for="@Model.Bio"></textarea>
+		<span class="focus-input100"></span>
+		<span class="symbol-input100">
+		</span>
+	</div>
+
+	@* <div class="wrap-input100 validate-input" data-validate="Road Map is required">
+		<textarea class="input100  p-l-20 pt-2	" placeholder="Road Map" asp-for="@Model.Roadmap"></textarea>
+		<span class="focus-input100"></span>
+		<span class="symbol-input100">
+		</span>
+	</div> *@
+
+
+	<div asp-validation-summary="All" class="text-danger text-center mt-3">
+	</div>
+
+	<div class="container-login100-form-btn">
+		<input type="submit" value="Signup" class="login100-form-btn" />
+	</div>
+
+
+	<div class=" text-center p-t-100 ">
+
+		<span> Already Have An Email ? </span>
+		<a class="txt2" asp-action="SignIn">
+			Login 
+			<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+		</a>
+
+	</div>
+</form>
+
+
+

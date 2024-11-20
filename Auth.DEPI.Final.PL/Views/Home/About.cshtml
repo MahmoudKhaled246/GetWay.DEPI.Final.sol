@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewData["Title"] = "About";
+    ViewData["TopBody"] = "At Online Courses, we believe in empowering individuals through quality education. Our mission is to provide accessible, engaging, and practical online courses that equip you with the skills you need to thrive in today’s fast-paced world. Join us on a journey of lifelong learning and unlock your potential!";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<partial name="HomePartialViews/TopPartialViews"></partial>
+
+
+<!-- About Section -->
+<section id="about" class="about section">
+
+    <div class="container">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+                <img src="~/images/about-2.jpg" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
+                <h3>Empowering Your Learning Journey</h3>
+                <p class="fst-italic">
+                    At Online Courses we are dedicated to providing high-quality online courses designed to help you succeed. Our platform offers a variety of subjects, ensuring that you can find the right course to meet your needs..
+                </p>
+                <ul>
+                    <li><i class="bi bi-check-circle"></i> <span>Expert instructors with real-world experience.</span></li>
+                    <li><i class="bi bi-check-circle"></i> <span>Interactive learning modules to enhance understanding.</span></li>
+                    <li><i class="bi bi-check-circle"></i> <span>Flexible course schedules that fit your lifestyle.</span></li>
+                </ul>
+                <a asp-action="About" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section><!-- /About Section -->
+<!-- Counts Section -->
+<section id="counts" class="section counts light-background">
+
+    <div class="container  " data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4  d-flex  justify-content-around">
+
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-item text-center w-100 h-100">
+                    <span data-purecounter-start="0" data-purecounter-end="@ViewData["StudentsCount"]" data-purecounter-duration="1" class="purecounter"></span>
+                    <p>Students</p>
+                </div>
+            </div><!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-item text-center w-100 h-100">
+                    <span data-purecounter-start="0" data-purecounter-end="@ViewData["CoursesCount"]" data-purecounter-duration="1" class="purecounter"></span>
+                    <p>Courses</p>
+                </div>
+            </div><!-- End Stats Item -->
+
+
+
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-item text-center w-100 h-100">
+                    <span data-purecounter-start="0" data-purecounter-end="@ViewData["InstructorsCount"]" data-purecounter-duration="1" class="purecounter"></span>
+                    <p>instructors</p>
+                </div>
+            </div><!-- End Stats Item -->
+
+        </div>
+
+    </div>
+
+</section><!-- /Counts Section -->

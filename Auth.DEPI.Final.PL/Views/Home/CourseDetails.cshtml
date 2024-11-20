@@ -1,0 +1,105 @@
+﻿@model CoursesViewModel
+
+@{
+    ViewData["Title"] = "CourseDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<partial name="HomePartialViews/TopPartialViews"></partial>
+
+<!-- Courses Course Details Section -->
+<section id="courses-course-details" class="courses-course-details section">
+
+    <div class="container" data-aos="fade-up">
+
+        <div class="row">
+            <div class="col-lg-8">
+                <img src="~/files/images/@Model.Thumbnail" class="img-fluid" alt="">
+                <h3>@Model.Name</h3>
+                <blockquote class="blockquote text-justify" style="background-color: #f8f9fa; border-left: 5px solid #28a745; padding: 15px;">
+                    <p class="mb-0">@Model.Description</p>
+                </blockquote>
+            </div>
+            <div class="col-lg-4">
+
+                <div class="course-info d-flex justify-content-between align-items-center">
+                    <h5>Instructor</h5>
+                    <p><a asp-action="Instructors">@Model.Instructor.Name</a></p>
+                </div>
+
+                <div class="course-info d-flex justify-content-between align-items-center">
+                    <h5>Course Fee</h5>
+                    <p>Free</p>
+                </div>
+
+                <div class="course-info d-flex justify-content-between align-items-center">
+                    <h5>Duration</h5>
+                    <p>@Model.Duration Hrs</p>
+                </div>
+
+                <!-- Enroll Button -->
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (ViewBag.isEnrolled)
+                    {
+                        <div class="d-flex justify-content-center align-items-center ">
+                            <a style="pointer-events: none;" class="btn btn-secondary text-white">Enrolled</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="d-flex justify-content-center align-items-center ">
+                            <a asp-action="Enroll" asp-route-Id="@Model.Id" class="btn btn-success text-white">Enroll</a>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="d-flex justify-content-center align-items-center ">
+                        <a asp-action="Enroll" asp-route-Id="@Model.Id" class="btn btn-success text-white">Enroll</a>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Display Videos Only for Enrolled Users -->
+        @if (ViewBag.isEnrolled)
+        {
+            <h3>Videos for this Course</h3>
+
+            @if (Model.Videos != null && Model.Videos.Any())
+            {
+                <div class="accordion" id="courseVideosAccordion">
+                    @foreach (var video in Model.Videos)
+                    {
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-@video.Id">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@video.Id" aria-expanded="false" aria-controls="collapse-@video.Id">
+                                    @video.Title
+                                </button>
+                            </h2>
+                            <div id="collapse-@video.Id" class="accordion-collapse collapse" aria-labelledby="heading-@video.Id" data-bs-parent="#courseVideosAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Upload Date:</strong> @video.UploadDate.ToShortDateString()</p>
+                                    <video width="320" height="240" controls>
+                                        <source src="~/files/videos/@video.Path" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <p>No videos available for this course.</p>
+            }
+        }
+        else
+        {
+            <p>You need to enroll to access the course videos.</p>
+        }
+
+    </div>
+</section><!-- /Courses Course Details Section -->

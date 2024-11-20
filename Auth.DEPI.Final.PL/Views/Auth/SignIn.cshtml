@@ -1,0 +1,192 @@
+﻿@model SignInViewModel
+
+@{
+    ViewData["Title"] = "SignIn";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}@*
+<div id="container" class="container">
+	<!-- FORM SECTION -->
+	<div class="row">
+		<!-- SIGN UP -->
+		<div class="col align-items-center flex-col sign-up">
+			<div class="form-wrapper align-items-center">
+				<div class="form sign-up">
+					<div class="input-group">
+						<i class='bx bxs-user'></i>
+						<input type="text" placeholder="Username">
+					</div>
+					<div class="input-group">
+						<i class='bx bx-mail-send'></i>
+						<input type="email" placeholder="Email">
+					</div>
+					<div class="input-group">
+						<i class='bx bxs-lock-alt'></i>
+						<input type="password" placeholder="Password">
+					</div>
+					<div class="input-group">
+						<i class='bx bxs-lock-alt'></i>
+						<input type="password" placeholder="Confirm password">
+					</div>
+					<button>
+						Sign up
+					</button>
+					<p>
+						<span>
+							Already have an account?
+						</span>
+						<b onclick="toggle()" class="pointer">
+							Sign in here
+						</b>
+					</p>
+				</div>
+			</div>
+
+		</div>
+		<!-- END SIGN UP -->
+		<!-- SIGN IN -->
+		<form asp-action="SignIn" method="post" class="form-wrapper align-items-center"
+			  style="position: absolute; top: 50%; right: 150px; transform: translateY(-50%);">
+			<div class="form sign-in">
+				<div validate-input class="input-group" data-validate="Valid email is required: ex@abc.xyz">
+					<i class='bx bxs-user'></i>
+					<input asp-for="@Model.Email" placeholder="Email">
+				</div>
+				<div validate-input class="input-group">
+					<i class='bx bxs-lock-alt'></i>
+					<input placeholder="Password" asp-for="@Model.Password">
+				</div>
+				<div class="wrap-input100  text-center" validate-input data-validate="Password is required">
+					<input placeholder="Password" asp-for="@Model.RememberMe">
+					<label asp-for="@Model.RememberMe"> Remember Me</label>
+				</div>
+				<button type="submit">
+					Sign in
+				</button>
+				<p>
+					<a class="txt2" asp-action="ForgetPassword">
+						Forgot Password?
+					</a>
+				</p>
+				<p>
+
+					<span>
+						Don't have an account?
+					</span>
+					<div class="text-center p-t-100">
+						<a class="txt2" asp-action="StudentSignUp">
+							<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+							Create Student Account
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+						<br />
+						<br />
+						<a class="txt2" asp-action="InstructorSignUp">
+							<i class="fa fa-university" aria-hidden="true"></i>
+							Create Instructor Account
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</p>
+			</div>
+
+		</form>
+
+		<!-- END SIGN IN -->
+	</div>
+	<!-- END FORM SECTION -->
+	<!-- CONTENT SECTION -->
+	<div class="row content-row">
+		<!-- SIGN IN CONTENT -->
+		<div class="col align-items-center flex-col">
+			<div class="text sign-in">
+				<h2>
+					Welcome
+				</h2>
+
+			</div>
+			<div class="img sign-in">
+			</div>
+		</div>
+		<!-- END SIGN IN CONTENT -->
+		<!-- SIGN UP CONTENT -->
+		<div class="col align-items-center flex-col">
+			<div class="img sign-up">
+			</div>
+			<div class="text sign-up">
+				<h2>
+					Join with us
+				</h2>
+
+			</div>
+		</div>
+		<!-- END SIGN UP CONTENT -->
+	</div>
+	<!-- END CONTENT SECTION -->
+</div>
+*@ <form asp-action="SignIn" method="post" class="login100-form validate-form">
+
+
+	<span class="login100-form-title">
+		User Login
+	</span>
+
+
+	<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+		<input class="input100" asp-for="@Model.Email" placeholder="Email">
+		<span class="focus-input100"></span>
+		<span class="symbol-input100">
+			<i class="fa fa-envelope" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<div class="wrap-input100 validate-input" data-validate="Password is required">
+		<input class="input100"  placeholder="Password" asp-for="@Model.Password">
+		<span class="focus-input100"></span>
+		<span class="symbol-input100">
+			<i class="fa fa-lock" aria-hidden="true"></i>
+		</span>
+	</div>
+	<div class="wrap-input100 validate-input text-center" >
+		<input   placeholder="Password" asp-for="@Model.RememberMe" > 
+		<label asp-for="@Model.RememberMe"> Remember Me</label>
+	</div>
+
+	<div class="container-login100-form-btn">
+		<input type="submit" value="Login" class="login100-form-btn" />
+	</div>
+	
+	<div asp-validation-summary="All"  class = "text-danger text-center mt-3">
+
+	</div>
+
+	<div class="text-center p-t-12">
+		
+		<a class="txt2" asp-action="ForgetPassword">
+			Forgot Password?
+		</a>
+	</div>
+
+	
+
+
+	<div class=" text-center p-t-100 ">
+	
+			<a class="txt2" asp-action="StudentSignUp">
+			<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+				Create Student Account
+				<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+			</a>
+
+			<br />
+			<br />
+
+			<a class="txt2" asp-action="InstructorSignUp">
+			<i class="fa fa-university" aria-hidden="true"></i>
+				Create Instructor Account
+				<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+			</a>
+
+	</div>
+</form>
+
+ 

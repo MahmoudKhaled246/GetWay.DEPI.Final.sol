@@ -1,0 +1,35 @@
+﻿<nav id="navmenu" class="navmenu">
+    <ul>
+        <li>
+            <a asp-controller="Home" asp-action="Index" class="@(ViewContext.RouteData.Values["action"].ToString() == "Index" ? "active" : "")">
+                <i class="fas fa-house-user fs-6  mx-2"></i>Home<br>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Home" asp-action="About" class="@(ViewContext.RouteData.Values["action"].ToString() == "About" ? "active" : "")">
+                <i class="fas fa-info fs-6  mx-2"></i>About
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Home" asp-action="Courses" class="@(ViewContext.RouteData.Values["action"].ToString() == "Courses" ? "active" : "")">
+                <i class="fas fa-chalkboard fs-6  mx-2"></i>Courses
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Home" asp-action="Instructors" class="@(ViewContext.RouteData.Values["action"].ToString() == "Instructors" ? "active" : "")">
+                <i class="fas fa-person-chalkboard fs-6  mx-2"></i>Instructors
+            </a>
+        </li>
+        
+        <li class="dropdown">
+            <a > <i class="fas fa-user fs-6 mx-2"></i> <span>Student</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+               
+                <li> <a asp-controller="Home" asp-action="EnrolledCourses">Enrolled Courses</a></li>
+                <li> <a asp-controller="Auth" asp-action="SignOut" class="text-danger">Sign Out</a></li>
+            </ul>
+        </li>
+    </ul>
+    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+</nav>
+

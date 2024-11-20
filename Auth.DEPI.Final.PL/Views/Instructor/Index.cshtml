@@ -1,0 +1,118 @@
+﻿
+@{
+<<<<<<< Updated upstream
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+=======
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+>>>>>>> Stashed changes
+}
+
+
+<<<<<<< Updated upstream
+=======
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">@ViewBag.CardTitle</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <div class="card-body">
+		<div class="d-flex justify-content-between align-items-center mb-3">
+			<h1>Courses</h1>
+            <a asp-action="CreateCourse" class="btn btn-success"><i class="fas fa-plus mx-1"></i>Add Course</a>
+
+		</div>
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-hover">
+                <tr>
+                    <td style="text-align: center; vertical-align: middle;">Cover</td>
+                    <td style="text-align: center; vertical-align: middle;">Name</td>
+                    <td style="text-align: center; vertical-align: middle;">Id</td>
+                    <td style="text-align: center; vertical-align: middle;">Description</td>
+                    <td style="text-align: center; vertical-align: middle;">Date</td>
+                    <td style="text-align: center; vertical-align: middle;">Details</td>
+                    <td style="text-align: center; vertical-align: middle;">Update</td>
+                    <td style="text-align: center; vertical-align: middle;">Delete</td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><img src="~/files/images/@item.Thumbnail" width="70" height="70" alt="Course Thumbnail" class="img-thumbnail" /></td>
+                        <td style="text-align: center; vertical-align: middle;">@item.Name</td>
+                        <td style="text-align: center; vertical-align: middle;">@item.Id</td>
+                        <td style="text-align: center; vertical-align: middle;">@item.Description</td>
+                        <td style="text-align: center; vertical-align: middle;">@item.Created</td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <a class="btn btn-warning" asp-action="Details" asp-route-Id="@item.Id"><i class="fas fa-eye mx-1"></i>Details</a>
+
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <a class="btn btn-success" asp-action="Edit" asp-route-Id="@item.Id"><i class="fas fa-edit mx-1"></i>Edit</a>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-Id="@item.Id"><i class="fas fa-trash-alt mx-1"></i>Delete</a>
+                        </td>
+
+                    </tr>
+                }
+            </table>
+
+        }
+        else
+        {
+            <div class="alert alert-warning"> There is No Courses Yet :(</div>
+        }
+    </div>
+
+
+
+
+</div>
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Students</h3>
+    </div>
+
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1>Students</h1>
+        </div>
+
+            <table class="table table-hover">
+                <tr>
+                    <td style="text-align: center; vertical-align: middle;">Cover</td>
+                    <td style="text-align: center; vertical-align: middle;">Name</td>
+                    <td style="text-align: center; vertical-align: middle;">Course Name</td> <!-- New column for Course Name -->
+                    <td style="text-align: center; vertical-align: middle;">Id</td>
+                </tr>
+                @foreach (var student in ViewBag.Students)
+                {
+                    <tr>
+                        <td><img src="~/files/images/@student.Image" width="70" height="70" alt="Student Image" class="img-thumbnail" /></td>
+                        <td style="text-align: center; vertical-align: middle;">@student.Name</td>
+                        <td style="text-align: center; vertical-align: middle;">@student.CourseName</td> <!-- Display Course Name -->
+                        <td style="text-align: center; vertical-align: middle;">@student.Id</td>
+                    </tr>
+                }
+            </table>
+   
+
+    </div>
+</div>
+>>>>>>> Stashed changes

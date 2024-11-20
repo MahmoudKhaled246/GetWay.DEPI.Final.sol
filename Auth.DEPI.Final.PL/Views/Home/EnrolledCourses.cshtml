@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CoursesViewModel>
+@{
+    ViewData["Title"] = "EnrolledCourses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<partial name="HomePartialViews/TopPartialViews"></partial>
+
+<!-- Courses Section -->
+<section id="courses" class="courses section">
+
+    <div class="container">
+
+        <div class="row">
+
+            @if (Model.Count() > 0)
+            {
+
+                foreach (var course in Model)
+                {
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="">
+                        <div class="course-item">
+                            <img src="~/files/images/@course.Thumbnail" class="img-fluid" alt="...">
+                            <div class="course-content">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <p class="price"></p>
+                                    <p class="price">Free</p>
+                                </div>
+
+                                <h3><a asp-action="CourseDetails" asp-route-Id="@course.Id">@course.Name</a></h3>
+                                <p class="description" style=" width: 200px; white-space: nowrap; overflow: hidden ;text-overflow: ellipsis;">@course.Description</p>
+                                <div class="trainer d-flex justify-content-between align-items-center">
+                                    <div class="trainer-profile d-flex align-items-center">
+                                        <img src="~/files/images/@course.Instructor.Image" class="img-fluid" alt="">
+                                        <a asp-action="Instructors" class="trainer-link">@course.Instructor.Name</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- End Course Item-->
+                }
+            }
+            else
+            {
+                <div class="alert alert-warning"> There Is No Courses Yet :( </div>
+            }
+
+
+        </div>
+
+    </div>
+
+</section><!-- /Courses Section -->
+
+

@@ -1,0 +1,85 @@
+﻿@model CoursesViewModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+<div asp-validation-summary="All"></div>
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">@ViewBag.CardTitle</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <div class="card-body">
+        <form method="post" asp-action="Edit" enctype="multipart/form-data">
+            <input hidden asp-for="Id" />
+            <input hidden asp-for="Thumbnail" />
+
+
+            <div class="row mb-3">
+                <label asp-for="Name" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                    <input asp-for="Name" type="text" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <label asp-for="Description" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                    <textarea asp-for="Description" class="form-control" style="height: 100px"></textarea>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row mb-3">
+                <label asp-for="Duration" class="col-sm-2 col-form-label">Duration</label>
+                <div class="col-sm-10">
+                    <input asp-for="Duration" type="number" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <label asp-for="CourseImage" class="col-sm-2 col-form-label">Thumbnail</label>
+                <div class="col-sm-10">
+                    <input class="form-control" name="CourseImage" type="file" id="imgFile"> <!-- Ensure name is "Thumbnail" -->
+                </div>
+            </div>
+
+
+
+            <div class="row mb-3">
+                <div class="col-12 d-flex justify-content-center">
+                    <a asp-action="CreateVideo" asp-route-courseId="@Model.Id" class="btn btn-warning mx-2">Add Video</a>
+                    <input type="submit" class="btn btn-success mx-2" value="Save" />
+                    <a asp-action="Index" class="btn btn-primary mx-2">Cancel</a>
+                </div>
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+
+
+</div>
+

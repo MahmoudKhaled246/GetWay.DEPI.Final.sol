@@ -1,0 +1,63 @@
+﻿@model IEnumerable<VideoViewModel>
+
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">@ViewBag.CardTitle</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1>Videos</h1>
+            <a asp-action="CreateVideo" asp-route-courseId="@ViewBag.CourseId" class="btn btn-success"><i class="fas fa-plus mx-1"></i>Add Video</a>
+
+        </div>
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <td style="text-align: center; vertical-align: middle;">Video</td>
+                    <td style="text-align: center; vertical-align: middle;">Title</td>
+                    <td style="text-align: center; vertical-align: middle;">Id</td>
+                    <td style="text-align: center; vertical-align: middle;">Upload Date</td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style ="text-align: center; vertical-align: middle;"><video src="~/files/videos/@item.Path" width="300" height="300" alt="Course Thumbnail" class="img-thumbnail"  controls/></td>
+                        <td style="text-align: center; vertical-align: middle;">@item.Title</td>
+                        <td style="text-align: center; vertical-align: middle;">@item.Id</td>
+                        <td style="text-align: center; vertical-align: middle;">@item.UploadDate</td>
+
+                    </tr>
+                }
+            </table>
+
+        }
+        else
+        {
+            <div class="alert alert-warning"> There is No Courses Yet :(</div>
+        }
+    </div>
+
+
+
+
+</div>

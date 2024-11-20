@@ -1,0 +1,249 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    
+}
+
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+        <img src="~/images/hero-bg2.jpg" alt="" data-aos="fade-in">
+
+        <div class="container">
+            <h2 data-aos="fade-up" data-aos-delay="100">Learning Today,<br>Leading Tomorrow</h2>
+        <p data-aos="fade-up" data-aos-delay="200">Empowering Minds with Engaging Online Learning.</p>
+            <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+                <a asp-action="Courses"  class="btn-get-started">Get Started</a>
+            </div>
+        </div>
+
+    </section><!-- /Hero Section -->
+
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+                    <img src="~/images/about.jpg" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
+                <h3>Empowering Your Learning Journey</h3>
+                    <p class="fst-italic">
+                    At Online Courses we are dedicated to providing high-quality online courses designed to help you succeed. Our platform offers a variety of subjects, ensuring that you can find the right course to meet your needs..
+                    </p>
+                    <ul>
+                    <li><i class="bi bi-check-circle"></i> <span>Expert instructors with real-world experience.</span></li>
+                    <li><i class="bi bi-check-circle"></i> <span>Interactive learning modules to enhance understanding.</span></li>
+                    <li><i class="bi bi-check-circle"></i> <span>Flexible course schedules that fit your lifestyle.</span></li>
+                    </ul>
+                    <a asp-action="About" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section><!-- /About Section -->
+     
+
+    <!-- Counts Section -->
+    <section id="counts" class="section counts light-background">
+
+        <div class="container  " data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row gy-4  d-flex  justify-content-around">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item text-center w-100 h-100">
+                    <span data-purecounter-start="0" data-purecounter-end="@ViewData["StudentsCount"]" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Students</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item text-center w-100 h-100">
+                    <span data-purecounter-start="0" data-purecounter-end="@ViewData["CoursesCount"]" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Courses</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-item text-center w-100 h-100">
+                    <span data-purecounter-start="0" data-purecounter-end="@ViewData["InstructorsCount"]" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>instructors</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
+            </div>
+
+        </div>
+
+    </section><!-- /Counts Section -->
+
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="section why-us">
+
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-box">
+                    <h3>Why Choose Our Online Courses?</h3>
+                        <p>
+                        Our online courses are designed to provide you with the flexibility to learn at your own pace. With expert instructors guiding you, you’ll gain practical skills and knowledge that you can apply immediately. Join a community of learners and access a wealth of resources to enhance your learning experience.
+                        </p>
+                        <ul>
+                            <li>Comprehensive Course Material: Access a wide range of topics tailored to your needs.</li>
+                            <li>Flexible Learning: Study from anywhere, at any time, on any device.</li>
+                            <li>Expert Instructors: Learn from industry professionals with real-world experience.</li>
+                            <li>Interactive Community: Engage with fellow students and instructors through forums and live sessions.</li>
+                        </ul>
+                        <div class="text-center">
+                            <a asp-action="About" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div><!-- End Why Box -->
+
+                <div class="col-lg-8 d-flex align-items-stretch">
+                    <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+
+                        <div class="col-xl-4">
+                            <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                                <i class="bi bi-clipboard-data"></i>
+                                <h4>Quality Course Content</h4>
+                                <p>Our courses are meticulously curated to ensure you receive the most relevant and practical knowledge.</p>
+                            </div>
+                        </div><!-- End Icon Box -->
+
+                        <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                                <i class="bi bi-gem"></i>
+                                <h4>Affordable Pricing</h4>
+                                <p>We believe in accessible education, offering competitive pricing for high-quality courses.</p>
+                            </div>
+                        </div><!-- End Icon Box -->
+
+                        <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
+                            <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                                <i class="bi bi-inboxes"></i>
+                                <h4>Personalized Learning Experience</h4>
+                                <p>Tailor your learning path with various courses and resources that suit your individual goals.</p>
+                            </div>
+                        </div><!-- End Icon Box -->
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section><!-- /Why Us Section -->
+
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Courses</h2>
+            <p>Latest Courses</p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+            
+            <div class="row">
+
+
+            @if (ViewBag.Courses is not null)
+                {
+                foreach (var item in ViewBag.Courses)
+                {
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="">
+                        <div class="course-item">
+                            <img src="~/files/images/@item.Thumbnail" class="img-fluid" alt="...">
+                            <div class="course-content">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <p class="price"></p>
+                                    <p class="price">Free</p>
+                                </div>
+
+                                <h3><a asp-action="CourseDetails" asp-route-Id="@item.Id">@item.Name</a></h3>
+                                <p class="description" style=" width: 200px; white-space: nowrap; overflow: hidden ;text-overflow: ellipsis;">@item.Description</p>
+                                <div class="trainer d-flex justify-content-between align-items-center">
+                                    <div class="trainer-profile d-flex align-items-center">
+                                        <img src="~/files/images/@item.Instructor.Image" class="img-fluid" alt="">
+                                        <a asp-action="Instructors" class="trainer-link">@item.Instructor.Name</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- End Course Item-->
+                }
+                }else
+                {
+                    <div class="alert alert-warning">
+                    There Is No Courses Yet :(
+                    </div>
+
+                }
+
+            </>
+
+        </div>
+
+    </section><!-- /Courses Section -->
+
+
+    <!-- Trainers Index Section -->
+    <section id="trainers-index" class="section trainers-index">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Instructors</h2>
+        <p>Our Professional Instructors</p>
+    </div><!-- End Section Title -->
+        <div class="container">
+
+            <div class="row">
+            @if (ViewBag.Instructors is not null)
+            {
+                 foreach (var Instructor in ViewBag.Instructors)
+                 {
+                     <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                         <div class="member">
+                             <img src="~/files/images/@Instructor.Image" class="img-fluid" alt="">
+                             <div class="member-content">
+                                 <h4>@Instructor.Name</h4>
+                                 <p>
+                                    @Instructor.Bio
+                                 </p>
+                                
+                             </div>
+                         </div>
+                     </div>
+                 }
+            }
+            else
+            {
+                <div class="alert alert-warning">
+                    There Is No Instructors Yet :(
+                </div>
+
+            }
+
+            </div>
+
+        </div>
+
+    </section><!-- /Trainers Index Section -->
+

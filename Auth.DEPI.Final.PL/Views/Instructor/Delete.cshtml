@@ -1,0 +1,85 @@
+﻿@model DeleteCourseViewModel
+@{
+    ViewBag.PageTitle = "Delete Course";
+    ViewBag.CardTitle = "Delete Course";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+<div asp-validation-summary="All">
+
+</div>
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">@ViewBag.CardTitle</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <div class="card-body">
+        <form asp-action="Delete" method="post">
+            <input hidden asp-for="Id" />
+            <input asp-for="Thumbnail" hidden />
+
+            <div class="row mb-3">
+                <label asp-for="Name" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                    <input readonly asp-for="Name" type="text" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <label asp-for="Description" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                    <textarea readonly asp-for="Description" class="form-control" style="height: 100px"></textarea>
+                </div>
+            </div>
+
+
+
+
+            <div class="row mb-3">
+                <label asp-for="Duration" class="col-sm-2 col-form-label">Duration</label>
+                <div class="col-sm-10">
+                    <input readonly asp-for="Duration" type="number" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <label for="Thumbnail" class="col-sm-2 col-form-label">Thumbnail</label>
+                <div class="col-sm-10">
+                    <input class="form-control" readonly type="file" id="formFile">
+                </div>
+            </div>
+
+
+
+            <div class="row mb-3">
+                <div class="col-12 d-flex justify-content-between">
+                    <input type="submit" class="btn btn-danger" value="Delete" />
+                    <a asp-action="Index" class="btn btn-primary ms-3">Cancel</a>
+                </div>
+            </div>
+
+
+
+        </form>
+    </div>
+
+
+
+
+</div>
+
